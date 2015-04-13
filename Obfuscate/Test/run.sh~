@@ -1,0 +1,5 @@
+#!/bin/bash
+
+clang -S -emit-llvm -o test_obfuscate.bc test_obfuscate.c
+
+opt -load ../../../../Release/lib/LLVMObfuscate.so < test_obfuscate.bc > /dev/null -obfuscate
